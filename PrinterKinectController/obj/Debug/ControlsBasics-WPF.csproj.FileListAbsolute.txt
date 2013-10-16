@@ -1,0 +1,87 @@
+C:\Users\Sharifzadeh\Documents\Kinect\Main Control Basics\ControlsBasics-WPF\AnyCPU.Debug\KinectInteraction180_32.dll
+C:\Users\Sharifzadeh\Documents\Kinect\Main Control Basics\ControlsBasics-WPF\AnyCPU.Debug\KinectInteraction180_64.dll
+C:\Users\Sharifzadeh\Documents\Kinect\Main Control Basics\ControlsBasics-WPF\AnyCPU.Debug\ControlsBasics-WPF.exe
+C:\Users\Sharifzadeh\Documents\Kinect\Main Control Basics\ControlsBasics-WPF\AnyCPU.Debug\ControlsBasics-WPF.pdb
+C:\Users\Sharifzadeh\Documents\Kinect\Main Control Basics\ControlsBasics-WPF\AnyCPU.Debug\Microsoft.Kinect.Toolkit.Controls.dll
+C:\Users\Sharifzadeh\Documents\Kinect\Main Control Basics\ControlsBasics-WPF\AnyCPU.Debug\Microsoft.Kinect.Toolkit.dll
+C:\Users\Sharifzadeh\Documents\Kinect\Main Control Basics\ControlsBasics-WPF\AnyCPU.Debug\Microsoft.Kinect.Toolkit.Interaction.dll
+C:\Users\Sharifzadeh\Documents\Kinect\Main Control Basics\ControlsBasics-WPF\AnyCPU.Debug\Microsoft.Kinect.Toolkit.Controls.pdb
+C:\Users\Sharifzadeh\Documents\Kinect\Main Control Basics\ControlsBasics-WPF\AnyCPU.Debug\Microsoft.Kinect.Toolkit.pdb
+C:\Users\Sharifzadeh\Documents\Kinect\Main Control Basics\ControlsBasics-WPF\obj\Debug\ControlsBasics-WPF.csprojResolveAssemblyReference.cache
+C:\Users\Sharifzadeh\Documents\Kinect\Main Control Basics\ControlsBasics-WPF\obj\Debug\Common\StandardStyles.baml
+C:\Users\Sharifzadeh\Documents\Kinect\Main Control Basics\ControlsBasics-WPF\obj\Debug\KeypadWindowKinect.baml
+C:\Users\Sharifzadeh\Documents\Kinect\Main Control Basics\ControlsBasics-WPF\obj\Debug\SelectionDisplay.baml
+C:\Users\Sharifzadeh\Documents\Kinect\Main Control Basics\ControlsBasics-WPF\obj\Debug\App.baml
+C:\Users\Sharifzadeh\Documents\Kinect\Main Control Basics\ControlsBasics-WPF\obj\Debug\KeypadWindowKinect.g.cs
+C:\Users\Sharifzadeh\Documents\Kinect\Main Control Basics\ControlsBasics-WPF\obj\Debug\MainWindow.g.cs
+C:\Users\Sharifzadeh\Documents\Kinect\Main Control Basics\ControlsBasics-WPF\obj\Debug\MainWindow_2.g.cs
+C:\Users\Sharifzadeh\Documents\Kinect\Main Control Basics\ControlsBasics-WPF\obj\Debug\SelectionDisplay.g.cs
+C:\Users\Sharifzadeh\Documents\Kinect\Main Control Basics\ControlsBasics-WPF\obj\Debug\App.g.cs
+C:\Users\Sharifzadeh\Documents\Kinect\Main Control Basics\ControlsBasics-WPF\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\Sharifzadeh\Documents\Kinect\Main Control Basics\ControlsBasics-WPF\obj\Debug\ControlsBasics-WPF_MarkupCompile.cache
+C:\Users\Sharifzadeh\Documents\Kinect\Main Control Basics\ControlsBasics-WPF\obj\Debug\ControlsBasics-WPF_MarkupCompile.lref
+C:\Users\Sharifzadeh\Documents\Kinect\Main Control Basics\ControlsBasics-WPF\obj\Debug\MainWindow.baml
+C:\Users\Sharifzadeh\Documents\Kinect\Main Control Basics\ControlsBasics-WPF\obj\Debug\MainWindow_2.baml
+C:\Users\Sharifzadeh\Documents\Kinect\Main Control Basics\ControlsBasics-WPF\obj\Debug\ControlsBasics-WPF.g.resources
+C:\Users\Sharifzadeh\Documents\Kinect\Main Control Basics\ControlsBasics-WPF\obj\Debug\Microsoft.Samples.Kinect.ControlsBasics.Properties.Resources.resources
+C:\Users\Sharifzadeh\Documents\Kinect\Main Control Basics\ControlsBasics-WPF\obj\Debug\ControlsBasics-WPF.csproj.GenerateResource.Cache
+C:\Users\Sharifzadeh\Documents\Kinect\Main Control Basics\ControlsBasics-WPF\obj\Debug\ControlsBasics-WPF.exe
+C:\Users\Sharifzadeh\Documents\Kinect\Main Control Basics\ControlsBasics-WPF\obj\Debug\ControlsBasics-WPF.pdb
+C:\Users\Sharifzadeh\Documents\Kinect\Main Control Basics\BackUp\obj\Debug\ControlsBasics-WPF.csprojResolveAssemblyReference.cache
+C:\Users\Sharifzadeh\Documents\Kinect\Main Control Basics\BackUp\obj\Debug\Common\StandardStyles.baml
+C:\Users\Sharifzadeh\Documents\Kinect\Main Control Basics\BackUp\obj\Debug\KeypadWindowKinect.baml
+C:\Users\Sharifzadeh\Documents\Kinect\Main Control Basics\BackUp\obj\Debug\SelectionDisplay.baml
+C:\Users\Sharifzadeh\Documents\Kinect\Main Control Basics\BackUp\obj\Debug\App.baml
+C:\Users\Sharifzadeh\Documents\Kinect\Main Control Basics\BackUp\obj\Debug\KeypadWindowKinect.g.cs
+C:\Users\Sharifzadeh\Documents\Kinect\Main Control Basics\BackUp\obj\Debug\MainWindow.g.cs
+C:\Users\Sharifzadeh\Documents\Kinect\Main Control Basics\BackUp\obj\Debug\MainWindow_2.g.cs
+C:\Users\Sharifzadeh\Documents\Kinect\Main Control Basics\BackUp\obj\Debug\SelectionDisplay.g.cs
+C:\Users\Sharifzadeh\Documents\Kinect\Main Control Basics\BackUp\obj\Debug\App.g.cs
+C:\Users\Sharifzadeh\Documents\Kinect\Main Control Basics\BackUp\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\Sharifzadeh\Documents\Kinect\Main Control Basics\BackUp\obj\Debug\ControlsBasics-WPF_MarkupCompile.cache
+C:\Users\Sharifzadeh\Documents\Kinect\Main Control Basics\BackUp\obj\Debug\ControlsBasics-WPF_MarkupCompile.lref
+C:\Users\Sharifzadeh\Documents\Kinect\Main Control Basics\BackUp\AnyCPU.Debug\KinectInteraction180_32.dll
+C:\Users\Sharifzadeh\Documents\Kinect\Main Control Basics\BackUp\AnyCPU.Debug\KinectInteraction180_64.dll
+C:\Users\Sharifzadeh\Documents\Kinect\Main Control Basics\BackUp\AnyCPU.Debug\ControlsBasics-WPF.exe
+C:\Users\Sharifzadeh\Documents\Kinect\Main Control Basics\BackUp\AnyCPU.Debug\ControlsBasics-WPF.pdb
+C:\Users\Sharifzadeh\Documents\Kinect\Main Control Basics\BackUp\AnyCPU.Debug\Microsoft.Kinect.Toolkit.Controls.dll
+C:\Users\Sharifzadeh\Documents\Kinect\Main Control Basics\BackUp\AnyCPU.Debug\Microsoft.Kinect.Toolkit.dll
+C:\Users\Sharifzadeh\Documents\Kinect\Main Control Basics\BackUp\AnyCPU.Debug\Microsoft.Kinect.Toolkit.Interaction.dll
+C:\Users\Sharifzadeh\Documents\Kinect\Main Control Basics\BackUp\AnyCPU.Debug\Microsoft.Kinect.Toolkit.Controls.pdb
+C:\Users\Sharifzadeh\Documents\Kinect\Main Control Basics\BackUp\AnyCPU.Debug\Microsoft.Kinect.Toolkit.pdb
+C:\Users\Sharifzadeh\Documents\Kinect\Main Control Basics\BackUp\obj\Debug\MainWindow.baml
+C:\Users\Sharifzadeh\Documents\Kinect\Main Control Basics\BackUp\obj\Debug\MainWindow_2.baml
+C:\Users\Sharifzadeh\Documents\Kinect\Main Control Basics\BackUp\obj\Debug\ControlsBasics-WPF.g.resources
+C:\Users\Sharifzadeh\Documents\Kinect\Main Control Basics\BackUp\obj\Debug\Microsoft.Samples.Kinect.ControlsBasics.Properties.Resources.resources
+C:\Users\Sharifzadeh\Documents\Kinect\Main Control Basics\BackUp\obj\Debug\ControlsBasics-WPF.csproj.GenerateResource.Cache
+C:\Users\Sharifzadeh\Documents\Kinect\Main Control Basics\BackUp\obj\Debug\ControlsBasics-WPF.exe
+C:\Users\Sharifzadeh\Documents\Kinect\Main Control Basics\BackUp\obj\Debug\ControlsBasics-WPF.pdb
+C:\Users\Felix\Desktop\BackUp\AnyCPU.Debug\KinectInteraction180_32.dll
+C:\Users\Felix\Desktop\BackUp\AnyCPU.Debug\KinectInteraction180_64.dll
+C:\Users\Felix\Desktop\BackUp\AnyCPU.Debug\Microsoft.Kinect.Toolkit.Controls.dll
+C:\Users\Felix\Desktop\BackUp\AnyCPU.Debug\Microsoft.Kinect.Toolkit.dll
+C:\Users\Felix\Desktop\BackUp\AnyCPU.Debug\Microsoft.Kinect.Toolkit.Interaction.dll
+C:\Users\Felix\Desktop\BackUp\AnyCPU.Debug\Microsoft.Kinect.Toolkit.Controls.pdb
+C:\Users\Felix\Desktop\BackUp\AnyCPU.Debug\Microsoft.Kinect.Toolkit.pdb
+C:\Users\Felix\Desktop\BackUp\obj\Debug\ControlsBasics-WPF.csprojResolveAssemblyReference.cache
+C:\Users\Felix\Desktop\BackUp\obj\Debug\Common\StandardStyles.baml
+C:\Users\Felix\Desktop\BackUp\obj\Debug\KeypadWindowKinect.baml
+C:\Users\Felix\Desktop\BackUp\obj\Debug\SelectionDisplay.baml
+C:\Users\Felix\Desktop\BackUp\obj\Debug\App.baml
+C:\Users\Felix\Desktop\BackUp\obj\Debug\KeypadWindowKinect.g.cs
+C:\Users\Felix\Desktop\BackUp\obj\Debug\MainWindow.g.cs
+C:\Users\Felix\Desktop\BackUp\obj\Debug\MainWindow_2.g.cs
+C:\Users\Felix\Desktop\BackUp\obj\Debug\SelectionDisplay.g.cs
+C:\Users\Felix\Desktop\BackUp\obj\Debug\App.g.cs
+C:\Users\Felix\Desktop\BackUp\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\Felix\Desktop\BackUp\obj\Debug\ControlsBasics-WPF_MarkupCompile.cache
+C:\Users\Felix\Desktop\BackUp\obj\Debug\ControlsBasics-WPF_MarkupCompile.lref
+C:\Users\Felix\Desktop\BackUp\obj\Debug\MainWindow.baml
+C:\Users\Felix\Desktop\BackUp\obj\Debug\MainWindow_2.baml
+C:\Users\Felix\Desktop\BackUp\obj\Debug\ControlsBasics-WPF.g.resources
+C:\Users\Felix\Desktop\BackUp\obj\Debug\Microsoft.Samples.Kinect.ControlsBasics.Properties.Resources.resources
+C:\Users\Felix\Desktop\BackUp\obj\Debug\ControlsBasics-WPF.csproj.GenerateResource.Cache
+C:\Users\Felix\Desktop\BackUp\obj\Debug\ControlsBasics-WPF.exe
+C:\Users\Felix\Desktop\BackUp\obj\Debug\ControlsBasics-WPF.pdb
+C:\Users\Felix\Desktop\BackUp\AnyCPU.Debug\ControlsBasics-WPF.exe
+C:\Users\Felix\Desktop\BackUp\AnyCPU.Debug\ControlsBasics-WPF.pdb

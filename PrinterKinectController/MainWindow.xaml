@@ -1,0 +1,171 @@
+﻿<Window x:Class="Microsoft.Samples.Kinect.ControlsBasics.Keyboard"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:k="http://schemas.microsoft.com/kinect/2013"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Microsoft.Samples.Kinect.ControlsBasics"
+        Name="ControlsBasicsWindow"
+        Title="Controls Basics"
+        Closing="WindowClosing"
+        mc:Ignorable="d"
+        d:DesignWidth="1348"
+        d:DesignHeight="970"
+        MinWidth="500"
+        MinHeight="700"
+        FontFamily="Segoe UI" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen" Width="Auto" Height="Auto">
+    
+<Window.Resources>
+        <PathGeometry x:Key="ChevronGeometry" x:Shared="False">
+            F1M150.001,146.9932L126.565,169.3822L126.565,153.5962L150.001,130.6182L173.435,153.5962L173.435,169.3822z
+        </PathGeometry>
+
+        <Path x:Key="ChevronUp" Height="48" Width="48" Stretch="Uniform" Canvas.Top="0" x:Shared="False"
+          Data="{StaticResource ChevronGeometry}"
+          Fill="{Binding FallbackValue=Black, Path=Foreground,RelativeSource={RelativeSource AncestorType={x:Type local:KinectHoverButton}}}">
+            <Path.RenderTransformOrigin>0.5,0.5</Path.RenderTransformOrigin>
+            <Path.RenderTransform>
+                <RotateTransform Angle="0"/>
+            </Path.RenderTransform>
+        </Path>
+
+        <Path x:Key="ChevronRight" Height="48" Width="48" Stretch="Uniform" Canvas.Top="0" x:Shared="False"
+          Data="{StaticResource ChevronGeometry}"
+          Fill="{Binding FallbackValue=Black, Path=Foreground,RelativeSource={RelativeSource AncestorType={x:Type local:KinectHoverButton}}}">
+            <Path.RenderTransformOrigin>0.5,0.5</Path.RenderTransformOrigin>
+            <Path.RenderTransform>
+                <RotateTransform Angle="90"/>
+            </Path.RenderTransform>
+        </Path>
+
+        <Path x:Key="ChevronDown" Height="48" Width="48" Stretch="Uniform" Canvas.Top="0" x:Shared="False"
+          Data="{StaticResource ChevronGeometry}"
+          Fill="{Binding FallbackValue=Black, Path=Foreground,RelativeSource={RelativeSource AncestorType={x:Type local:KinectHoverButton}}}">
+            <Path.RenderTransformOrigin>0.5,0.5</Path.RenderTransformOrigin>
+            <Path.RenderTransform>
+                <RotateTransform Angle="180"/>
+            </Path.RenderTransform>
+        </Path>
+
+        <Path x:Key="ChevronLeft" Height="48" Width="48" Stretch="Uniform" Canvas.Top="0" x:Shared="False"
+          Data="{StaticResource ChevronGeometry}"
+          Fill="{Binding FallbackValue=Black, Path=Foreground,RelativeSource={RelativeSource AncestorType={x:Type local:KinectHoverButton}}}">
+            <Path.RenderTransformOrigin>0.5,0.5</Path.RenderTransformOrigin>
+            <Path.RenderTransform>
+                <RotateTransform Angle="270"/>
+            </Path.RenderTransform>
+        </Path>
+
+        <Style x:Key="KinectHoverButtonStyle" TargetType="{x:Type local:KinectHoverButton}">
+            <Setter Property="Background" Value="LightGray"/>
+            <Setter Property="BorderBrush" Value="DarkGray"/>
+            <Setter Property="BorderThickness" Value="0"></Setter>
+            <Setter Property="Foreground" Value="White"></Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type local:KinectHoverButton}">
+                        <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="{TemplateBinding Background}" Width="{TemplateBinding Width}" Height="{TemplateBinding Height}">
+                            <Border BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}">
+                                <ContentPresenter HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="{TemplateBinding Content}"></ContentPresenter>
+                            </Border>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter Property="Foreground" Value="LightGray"/>
+                    <Setter Property="BorderBrush" Value="LightGray"/>
+                    <Setter Property="Background" Value="Transparent"></Setter>
+                </Trigger>
+                <Trigger Property="IsHandPointerOver" Value="True">
+                    <Setter Property="Background" Value="#5A5B5B"/>
+                    <Setter Property="Foreground" Value="White"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="KinectHoverButtonScrollUpStyle" TargetType="{x:Type local:KinectHoverButton}" BasedOn="{StaticResource KinectHoverButtonStyle}">
+            <Setter Property="Content" Value="{StaticResource ChevronUp}"/>
+        </Style>
+
+        <Style x:Key="KinectHoverButtonScrollRightStyle" TargetType="{x:Type local:KinectHoverButton}" BasedOn="{StaticResource KinectHoverButtonStyle}">
+            <Setter Property="Content" Value="{StaticResource ChevronRight}"/>
+        </Style>
+
+        <Style x:Key="KinectHoverButtonScrollDownStyle" TargetType="{x:Type local:KinectHoverButton}" BasedOn="{StaticResource KinectHoverButtonStyle}">
+            <Setter Property="Content" Value="{StaticResource ChevronDown}"/>
+        </Style>
+
+        <Style x:Key="KinectHoverButtonScrollLeftStyle" TargetType="{x:Type local:KinectHoverButton}" BasedOn="{StaticResource KinectHoverButtonStyle}">
+            <Setter Property="Content" Value="{StaticResource ChevronLeft}"/>
+        </Style>
+    </Window.Resources>
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Image Margin="0,0,-258.4,-84" Grid.RowSpan="2" Source="Apples-Aqua-Blue.jpg" Stretch="Fill" HorizontalAlignment="Left" Width="1600"/>
+
+        <Grid Grid.Row="0"  Margin="10 0 10 20">
+            <k:KinectUserViewer k:KinectRegion.KinectRegion="{Binding ElementName=kinectRegion}" Height="100" HorizontalAlignment="Center" VerticalAlignment="Top" />
+            <k:KinectSensorChooserUI HorizontalAlignment="Center" VerticalAlignment="Top" x:Name="sensorChooserUi" />
+            <Label x:Name="lblPrint" Content="Please wait, printing..." HorizontalAlignment="Center" Margin="59,61,75.6,-6" VerticalAlignment="Center" Width="1187" Height="45" FontWeight="Bold" FontFamily="Berlin Sans FB" FontSize="22" Foreground="#FFF5CDAB" HorizontalContentAlignment="Center"/>
+        </Grid>
+
+        <k:KinectRegion Grid.Row="1" x:Name="kinectRegion" Margin="0,0,-258.4,0">
+            <Grid x:Name="kinectRegionGrid" Margin="10,20,10,20">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition Height="224" />
+                </Grid.RowDefinitions>
+                <k:KinectScrollViewer x:Name="scrollViewer" VerticalScrollBarVisibility="Disabled" Margin="175,10,341,0" Width="1064" ClipToBounds="True" HorizontalScrollBarVisibility="Visible" HorizontalAlignment="Center" Height="370" VerticalAlignment="Top">
+                    <WrapPanel VerticalAlignment="Center" x:Name="wrapPanel" Orientation="Vertical" ButtonBase.Click="KinectTileButtonClick" Height="362">
+                        <WrapPanel Height="321" x:Name="wrapPanel1" Width="963" VerticalAlignment="Bottom" HorizontalAlignment="Center">
+                            <k:KinectTileButton Width="100" Height="100" Label="1">
+                                <k:KinectTileButton.LabelBackground>
+                                    <ImageBrush ImageSource="/ControlsBasics-WPF;component/Images/IMAG0809.jpg" Stretch="UniformToFill" TileMode="None"/>
+                                </k:KinectTileButton.LabelBackground>
+                            </k:KinectTileButton>
+                            <k:KinectTileButton Width="100" Height="100" Label="2" />
+                            <k:KinectTileButton Width="100" Height="100" Label="3" />
+                            <k:KinectTileButton Width="100" Height="100" Label="4" />
+                            <k:KinectTileButton Width="100" Height="100" Label="5" />
+                        </WrapPanel>
+                        <!-- items for design layout.  They will be replaced at runtime. -->
+                        <!-- items for design layout.  They will be replaced at runtime. -->
+                        <!-- items for design layout.  They will be replaced at runtime. -->
+                        <!-- items for design layout.  They will be replaced at runtime. -->
+                        <!-- items for design layout.  They will be replaced at runtime. -->
+                    </WrapPanel>
+                </k:KinectScrollViewer>
+                <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,1,0,10" Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="10"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                </Grid>
+                <WrapPanel VerticalAlignment="Center" x:Name="wrapPanelNew" Orientation="Horizontal" ButtonBase.Click="KinectTileButtonClick" Height="189"  Margin="175,19,0,16" FlowDirection="LeftToRight" HorizontalAlignment="Left" Width="1236" Grid.Row="1">
+                    <k:KinectTileButton Height="119" x:Name="kinectTileButton1" Content="Keyboard" Width="612" Opacity="0.7" FontSize="40" FontFamily="Berlin Sans FB Demi" BorderBrush="White" Background="#FFD8E0F9" Foreground="#FF515B7C" >
+                        <k:KinectTileButton.Effect>
+                            <BlurEffect Radius="3"/>
+                        </k:KinectTileButton.Effect>
+                    </k:KinectTileButton>
+                    <k:KinectTileButton Height="119" x:Name="kinectTileButton2" Content="Give My Shirt Back !" Width="612" Opacity="0.7" FontSize="40" FontFamily="Berlin Sans FB Demi" BorderBrush="White" Background="#FFD8E0F9" Foreground="#FF515B7C" >
+                        <k:KinectTileButton.Effect>
+                            <BlurEffect Radius="3"/>
+                        </k:KinectTileButton.Effect>
+                    </k:KinectTileButton>
+                </WrapPanel>
+            </Grid>
+        </k:KinectRegion>
+        <PasswordBox Grid.Row="1" Height="23" HorizontalAlignment="Left" Margin="1726,291,0,0" x:Name="passwordBox1" VerticalAlignment="Top" Width="120" />
+        <Button x:Name="resetShirtCarrier" Content="Reset Shirt Carrier" HorizontalAlignment="Left" Margin="882,10,0,0" VerticalAlignment="Top" Width="150" Height="26" Click="resetShirtCarrierButtonClick" Background="{x:Null}" Foreground="White" BorderBrush="#FFCBCBCB" FontFamily="Berlin Sans FB" FontWeight="Bold"/>
+        <Button x:Name="resetShirtCarrier_Copy" Content="Step Back Nozzle Carrier" HorizontalAlignment="Left" Margin="1088,10,0,0" VerticalAlignment="Top" Width="150" Height="26" Click="stepBackNozzleCarrierButtonClick" Background="{x:Null}" Foreground="White" BorderBrush="#FFCBCBCB" FontFamily="Berlin Sans FB" FontWeight="Bold"/>
+        <Button x:Name="resetShirtCarrier_Copy1" Content="Reset Nozzle Carrier" HorizontalAlignment="Left" Margin="1296,10,-104.4,0" VerticalAlignment="Top" Width="150" Height="26" Click="resetNozzleCarrierButtonClick" Background="{x:Null}" Foreground="White" BorderBrush="#FFCBCBCB" FontFamily="Berlin Sans FB" FontWeight="Bold"/>
+    </Grid>
+</Window>

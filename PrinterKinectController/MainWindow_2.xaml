@@ -1,0 +1,293 @@
+﻿<Window x:Class="Microsoft.Samples.Kinect.ControlsBasics.KeypadWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:k="http://schemas.microsoft.com/kinect/2013"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Microsoft.Samples.Kinect.ControlsBasics"
+        Name="ControlsBasicsWindow"
+        Title="Keyboard"
+        Closing="WindowClosing"
+        mc:Ignorable="d" MinWidth="500"
+        MinHeight="700"
+        FontFamily="Segoe UI" d:DesignHeight="787" d:DesignWidth="1367" SizeToContent="WidthAndHeight" Loaded="ControlsBasicsWindow_Loaded_1" WindowStartupLocation="CenterScreen" Width="1900" Height="800">
+    
+<Window.Resources>
+        <PathGeometry x:Key="ChevronGeometry" x:Shared="False">
+            F1M150.001,146.9932L126.565,169.3822L126.565,153.5962L150.001,130.6182L173.435,153.5962L173.435,169.3822z
+        </PathGeometry>
+
+        <Path x:Key="ChevronUp" Height="48" Width="48" Stretch="Uniform" Canvas.Top="0" x:Shared="False"
+          Data="{StaticResource ChevronGeometry}"
+          Fill="{Binding FallbackValue=Black, Path=Foreground,RelativeSource={RelativeSource AncestorType={x:Type local:KinectHoverButton}}}">
+            <Path.RenderTransformOrigin>0.5,0.5</Path.RenderTransformOrigin>
+            <Path.RenderTransform>
+                <RotateTransform Angle="0"/>
+            </Path.RenderTransform>
+        </Path>
+
+        <Path x:Key="ChevronRight" Height="48" Width="48" Stretch="Uniform" Canvas.Top="0" x:Shared="False"
+          Data="{StaticResource ChevronGeometry}"
+          Fill="{Binding FallbackValue=Black, Path=Foreground,RelativeSource={RelativeSource AncestorType={x:Type local:KinectHoverButton}}}">
+            <Path.RenderTransformOrigin>0.5,0.5</Path.RenderTransformOrigin>
+            <Path.RenderTransform>
+                <RotateTransform Angle="90"/>
+            </Path.RenderTransform>
+        </Path>
+
+        <Path x:Key="ChevronDown" Height="48" Width="48" Stretch="Uniform" Canvas.Top="0" x:Shared="False"
+          Data="{StaticResource ChevronGeometry}"
+          Fill="{Binding FallbackValue=Black, Path=Foreground,RelativeSource={RelativeSource AncestorType={x:Type local:KinectHoverButton}}}">
+            <Path.RenderTransformOrigin>0.5,0.5</Path.RenderTransformOrigin>
+            <Path.RenderTransform>
+                <RotateTransform Angle="180"/>
+            </Path.RenderTransform>
+        </Path>
+
+        <Path x:Key="ChevronLeft" Height="48" Width="48" Stretch="Uniform" Canvas.Top="0" x:Shared="False"
+          Data="{StaticResource ChevronGeometry}"
+          Fill="{Binding FallbackValue=Black, Path=Foreground,RelativeSource={RelativeSource AncestorType={x:Type local:KinectHoverButton}}}">
+            <Path.RenderTransformOrigin>0.5,0.5</Path.RenderTransformOrigin>
+            <Path.RenderTransform>
+                <RotateTransform Angle="270"/>
+            </Path.RenderTransform>
+        </Path>
+
+        <Style x:Key="KinectHoverButtonStyle" TargetType="{x:Type local:KinectHoverButton}">
+            <Setter Property="Background" Value="LightGray"/>
+            <Setter Property="BorderBrush" Value="DarkGray"/>
+            <Setter Property="BorderThickness" Value="0"></Setter>
+            <Setter Property="Foreground" Value="White"></Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type local:KinectHoverButton}">
+                        <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="{TemplateBinding Background}" Width="{TemplateBinding Width}" Height="{TemplateBinding Height}">
+                            <Border BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}">
+                                <ContentPresenter HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="{TemplateBinding Content}"></ContentPresenter>
+                            </Border>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter Property="Foreground" Value="LightGray"/>
+                    <Setter Property="BorderBrush" Value="LightGray"/>
+                    <Setter Property="Background" Value="Transparent"></Setter>
+                </Trigger>
+                <Trigger Property="IsHandPointerOver" Value="True">
+                    <Setter Property="Background" Value="#5A5B5B"/>
+                    <Setter Property="Foreground" Value="White"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="KinectHoverButtonScrollUpStyle" TargetType="{x:Type local:KinectHoverButton}" BasedOn="{StaticResource KinectHoverButtonStyle}">
+            <Setter Property="Content" Value="{StaticResource ChevronUp}"/>
+        </Style>
+
+        <Style x:Key="KinectHoverButtonScrollRightStyle" TargetType="{x:Type local:KinectHoverButton}" BasedOn="{StaticResource KinectHoverButtonStyle}">
+            <Setter Property="Content" Value="{StaticResource ChevronRight}"/>
+        </Style>
+
+        <Style x:Key="KinectHoverButtonScrollDownStyle" TargetType="{x:Type local:KinectHoverButton}" BasedOn="{StaticResource KinectHoverButtonStyle}">
+            <Setter Property="Content" Value="{StaticResource ChevronDown}"/>
+        </Style>
+
+        <Style x:Key="KinectHoverButtonScrollLeftStyle" TargetType="{x:Type local:KinectHoverButton}" BasedOn="{StaticResource KinectHoverButtonStyle}">
+            <Setter Property="Content" Value="{StaticResource ChevronLeft}"/>
+        </Style>
+    </Window.Resources>
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Image Margin="0,-90,-47.4,-17.6" Source="Apples-Aqua-Blue.jpg" Stretch="Fill" Grid.RowSpan="2"/>
+
+        <Grid Margin="10,0,16,85" Height="35">
+            <k:KinectUserViewer Height="100" HorizontalAlignment="Center" VerticalAlignment="Top" k:KinectRegion.KinectRegion="{Binding ElementName=kinectRegion}" />
+            <k:KinectSensorChooserUI HorizontalAlignment="Center" VerticalAlignment="Top" x:Name="sensorChooserUi" />
+            <TextBlock HorizontalAlignment="Right" Margin="0 0 -1 0" VerticalAlignment="Bottom" Foreground="{StaticResource MediumGreyBrush}" FontSize="18" Text="Keyboard"/>
+        </Grid>
+
+        <k:KinectRegion x:Name="kinectRegion" Margin="-10,110,9.6,10.4" Grid.RowSpan="2">
+            <Grid x:Name="kinectRegionGrid" Margin="10,20,10,20" Height="800">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="170" />
+                </Grid.RowDefinitions>
+                <WrapPanel x:Name="wrapPanel" ButtonBase.Click="KinectTileButtonClick" AllowDrop="False" Orientation="Horizontal" IsItemsHost="False" Width="1776" Margin="98,22,0,57.4" HorizontalAlignment="Left">
+                    <!-- items for design layout.  They will be replaced at runtime. -->
+                    <StackPanel Height="118" x:Name="stackPanel1" Width="1012" Orientation="Horizontal">
+                        <k:KinectTileButton Height="100" x:Name="kinectTileButton1" Width="117" HorizontalContentAlignment="Center" Content="Q" FontSize="40" MaxWidth="100" MaxHeight="120" FontFamily="Arial" FontWeight="Bold" BorderThickness="5" Margin="0,9,0,0" VerticalAlignment="Top" BorderBrush="#FF70C4FF" Background="#FF70C4FF" Foreground="White">
+                            <k:KinectTileButton.Effect>
+                                <DropShadowEffect Color="#FFDBC9C9"/>
+                            </k:KinectTileButton.Effect>
+                        </k:KinectTileButton>
+                        <k:KinectTileButton Content="W" FontSize="40" Height="100" HorizontalContentAlignment="Center" MaxHeight="120" MaxWidth="100" x:Name="kinectTileButton2" Width="100" FontWeight="Bold" BorderThickness="5" FontFamily="Arial" FontStyle="Normal" BorderBrush="#FF70C4FF" Background="#FF70C4FF" Foreground="White" LabelBackground="#E6FFFFFF">
+                            <k:KinectTileButton.Effect>
+                                <DropShadowEffect Color="#FFDBC9C9"/>
+                            </k:KinectTileButton.Effect>
+                        </k:KinectTileButton>
+                        <k:KinectTileButton Content="E" FontSize="40" Height="100" HorizontalContentAlignment="Center" MaxHeight="120" MaxWidth="100" x:Name="kinectTileButton3" Width="117" BorderThickness="5" FontFamily="Arial" FontWeight="Bold" BorderBrush="#FF70C4FF" Background="#FF70C4FF" Foreground="White">
+                            <k:KinectTileButton.Effect>
+                                <DropShadowEffect Color="#FFDBC9C9"/>
+                            </k:KinectTileButton.Effect>
+                        </k:KinectTileButton>
+                        <k:KinectTileButton BorderThickness="5" Content="R" FontFamily="Arial" FontSize="40" FontWeight="Bold" Height="100" HorizontalContentAlignment="Center" MaxHeight="120" MaxWidth="100" x:Name="kinectTileButton4" Width="117" BorderBrush="#FF70C4FF" Background="#FF70C4FF" Foreground="White">
+                            <k:KinectTileButton.Effect>
+                                <DropShadowEffect Color="#FFDBC9C9"/>
+                            </k:KinectTileButton.Effect>
+                        </k:KinectTileButton>
+                        <k:KinectTileButton BorderThickness="5" Content="T" FontFamily="Arial" FontSize="40" FontWeight="Bold" Height="100" HorizontalContentAlignment="Center" MaxHeight="120" MaxWidth="100" x:Name="kinectTileButton5" Width="117" BorderBrush="#FF70C4FF" Background="#FF70C4FF" Foreground="White">
+                            <k:KinectTileButton.Effect>
+                                <DropShadowEffect Color="#FFDBC9C9"/>
+                            </k:KinectTileButton.Effect>
+                        </k:KinectTileButton>
+                        <k:KinectTileButton BorderThickness="5" Content="Y" FontFamily="Arial" FontSize="40" FontWeight="Bold" Height="100" HorizontalContentAlignment="Center" MaxHeight="120" MaxWidth="100" x:Name="kinectTileButton6" Width="117" BorderBrush="#FF70C4FF" Background="#FF70C4FF" Foreground="White">
+                            <k:KinectTileButton.Effect>
+                                <DropShadowEffect Color="#FFDBC9C9"/>
+                            </k:KinectTileButton.Effect>
+                        </k:KinectTileButton>
+                        <k:KinectTileButton BorderThickness="5" Content="U" FontFamily="Arial" FontSize="40" FontWeight="Bold" Height="100" HorizontalContentAlignment="Center" MaxHeight="120" MaxWidth="100" x:Name="kinectTileButton7" Width="117" BorderBrush="#FF70C4FF" Background="#FF70C4FF" Foreground="White">
+                            <k:KinectTileButton.Effect>
+                                <DropShadowEffect Color="#FFDBC9C9"/>
+                            </k:KinectTileButton.Effect>
+                        </k:KinectTileButton>
+                        <k:KinectTileButton BorderThickness="5" Content="I" FontFamily="Arial" FontSize="40" FontWeight="Bold" Height="100" HorizontalContentAlignment="Center" MaxHeight="120" MaxWidth="100" x:Name="kinectTileButton8" Width="117" BorderBrush="#FF70C4FF" Background="#FF70C4FF" Foreground="White">
+                            <k:KinectTileButton.Effect>
+                                <DropShadowEffect Color="#FFDBC9C9"/>
+                            </k:KinectTileButton.Effect>
+                        </k:KinectTileButton>
+                        <k:KinectTileButton BorderThickness="5" Content="O" FontFamily="Arial" FontSize="40" FontWeight="Bold" Height="100" HorizontalContentAlignment="Center" MaxHeight="120" MaxWidth="100" x:Name="kinectTileButton9" Width="117" BorderBrush="#FF70C4FF" Background="#FF70C4FF" Foreground="White">
+                            <k:KinectTileButton.Effect>
+                                <DropShadowEffect Color="#FFDBC9C9"/>
+                            </k:KinectTileButton.Effect>
+                        </k:KinectTileButton>
+                        <k:KinectTileButton BorderThickness="5" Content="P" FontFamily="Arial" FontSize="40" FontWeight="Bold" Height="100" HorizontalContentAlignment="Center" MaxHeight="120" MaxWidth="100" x:Name="kinectTileButton10" Width="117" BorderBrush="#FF70C4FF" Background="#FF70C4FF" Foreground="White">
+                            <k:KinectTileButton.Effect>
+                                <DropShadowEffect Color="#FFDBC9C9"/>
+                            </k:KinectTileButton.Effect>
+                        </k:KinectTileButton>
+                    </StackPanel>
+                    <StackPanel Height="118" x:Name="stackPanel2" Orientation="Horizontal" Width="1012">
+                        <k:KinectTileButton BorderThickness="5" Content="A" FontFamily="Arial" FontSize="40" FontWeight="Bold" Height="100" HorizontalContentAlignment="Center" MaxHeight="120" MaxWidth="100" x:Name="kinectTileButton11" Width="117" BorderBrush="#FF70C4FF" Background="#FF70C4FF" Foreground="White">
+                            <k:KinectTileButton.Effect>
+                                <DropShadowEffect Color="#FFDBC9C9"/>
+                            </k:KinectTileButton.Effect>
+                        </k:KinectTileButton>
+                        <k:KinectTileButton BorderThickness="5" Content="S" FontFamily="Arial" FontSize="40" FontStyle="Normal" FontWeight="Bold" Height="100" HorizontalContentAlignment="Center" MaxHeight="120" MaxWidth="100" x:Name="kinectTileButton12" Width="100" BorderBrush="#FF70C4FF" Background="#FF70C4FF" Foreground="White" LabelBackground="#E6FFFFFF">
+                            <k:KinectTileButton.Effect>
+                                <DropShadowEffect Color="#FFDBC9C9"/>
+                            </k:KinectTileButton.Effect>
+                        </k:KinectTileButton>
+                        <k:KinectTileButton BorderThickness="5" Content="D" FontFamily="Arial" FontSize="40" FontWeight="Bold" Height="100" HorizontalContentAlignment="Center" MaxHeight="120" MaxWidth="100" x:Name="kinectTileButton13" Width="117" Click="kinectTileButton13_Click" BorderBrush="#FF70C4FF" Background="#FF70C4FF" Foreground="White">
+                            <k:KinectTileButton.Effect>
+                                <DropShadowEffect Color="#FFDBC9C9"/>
+                            </k:KinectTileButton.Effect>
+                        </k:KinectTileButton>
+                        <k:KinectTileButton BorderThickness="5" Content="F" FontFamily="Arial" FontSize="40" FontWeight="Bold" Height="100" HorizontalContentAlignment="Center" MaxHeight="120" MaxWidth="100" x:Name="kinectTileButton14" Width="117" BorderBrush="#FF70C4FF" Background="#FF70C4FF" Foreground="White">
+                            <k:KinectTileButton.Effect>
+                                <DropShadowEffect Color="#FFDBC9C9"/>
+                            </k:KinectTileButton.Effect>
+                        </k:KinectTileButton>
+                        <k:KinectTileButton BorderThickness="5" Content="G" FontFamily="Arial" FontSize="40" FontWeight="Bold" Height="100" HorizontalContentAlignment="Center" MaxHeight="120" MaxWidth="100" x:Name="kinectTileButton15" Width="117" BorderBrush="#FF70C4FF" Background="#FF70C4FF" Foreground="White">
+                            <k:KinectTileButton.Effect>
+                                <DropShadowEffect Color="#FFDBC9C9"/>
+                            </k:KinectTileButton.Effect>
+                        </k:KinectTileButton>
+                        <k:KinectTileButton BorderThickness="5" Content="H" FontFamily="Arial" FontSize="40" FontWeight="Bold" Height="100" HorizontalContentAlignment="Center" MaxHeight="120" MaxWidth="100" x:Name="kinectTileButton16" Width="117" BorderBrush="#FF70C4FF" Background="#FF70C4FF" Foreground="White">
+                            <k:KinectTileButton.Effect>
+                                <DropShadowEffect Color="#FFDBC9C9"/>
+                            </k:KinectTileButton.Effect>
+                        </k:KinectTileButton>
+                        <k:KinectTileButton BorderThickness="5" Content="J" FontFamily="Arial" FontSize="40" FontWeight="Bold" Height="100" HorizontalContentAlignment="Center" MaxHeight="120" MaxWidth="100" x:Name="kinectTileButton17" Width="117" BorderBrush="#FF70C4FF" Background="#FF70C4FF" Foreground="White">
+                            <k:KinectTileButton.Effect>
+                                <DropShadowEffect Color="#FFDBC9C9"/>
+                            </k:KinectTileButton.Effect>
+                        </k:KinectTileButton>
+                        <k:KinectTileButton BorderThickness="5" Content="K" FontFamily="Arial" FontSize="40" FontWeight="Bold" Height="100" HorizontalContentAlignment="Center" MaxHeight="120" MaxWidth="100" x:Name="kinectTileButton18" Width="117" BorderBrush="#FF70C4FF" Background="#FF70C4FF" Foreground="White">
+                            <k:KinectTileButton.Effect>
+                                <DropShadowEffect Color="#FFDBC9C9"/>
+                            </k:KinectTileButton.Effect>
+                        </k:KinectTileButton>
+                        <k:KinectTileButton BorderThickness="5" Content="L" FontFamily="Arial" FontSize="40" FontWeight="Bold" Height="100" HorizontalContentAlignment="Center" MaxHeight="120" MaxWidth="100" x:Name="kinectTileButton19" Width="117" BorderBrush="#FF70C4FF" Background="#FF70C4FF" Foreground="White">
+                            <k:KinectTileButton.Effect>
+                                <DropShadowEffect Color="#FFDBC9C9"/>
+                            </k:KinectTileButton.Effect>
+                        </k:KinectTileButton>
+                    </StackPanel>
+                    <StackPanel Height="118" x:Name="stackPanel3" Orientation="Horizontal" Width="1400">
+                        <k:KinectTileButton BorderThickness="5" Content="Z" FontFamily="Arial" FontSize="40" FontWeight="Bold" Height="100" HorizontalContentAlignment="Center" MaxHeight="120" MaxWidth="100" x:Name="kinectTileButton20" Width="117" BorderBrush="#FF70C4FF" Background="#FF70C4FF" Foreground="White">
+                            <k:KinectTileButton.Effect>
+                                <DropShadowEffect Color="#FFDBC9C9"/>
+                            </k:KinectTileButton.Effect>
+                        </k:KinectTileButton>
+                        <k:KinectTileButton BorderThickness="5" Content="X" FontFamily="Arial" FontSize="40" FontStyle="Normal" FontWeight="Bold" Height="100" HorizontalContentAlignment="Center" MaxHeight="120" MaxWidth="100" x:Name="kinectTileButton21" Width="100" BorderBrush="#FF70C4FF" Background="#FF70C4FF" Foreground="White" LabelBackground="#E6FFFFFF">
+                            <k:KinectTileButton.Effect>
+                                <DropShadowEffect Color="#FFDBC9C9"/>
+                            </k:KinectTileButton.Effect>
+                        </k:KinectTileButton>
+                        <k:KinectTileButton BorderThickness="5" Click="kinectTileButton13_Click" Content="C" FontFamily="Arial" FontSize="40" FontWeight="Bold" Height="100" HorizontalContentAlignment="Center" MaxHeight="120" MaxWidth="100" x:Name="kinectTileButton22" Width="117" BorderBrush="#FF70C4FF" Background="#FF70C4FF" Foreground="White">
+                            <k:KinectTileButton.Effect>
+                                <DropShadowEffect Color="#FFDBC9C9"/>
+                            </k:KinectTileButton.Effect>
+                        </k:KinectTileButton>
+                        <k:KinectTileButton BorderThickness="5" Content="V" FontFamily="Arial" FontSize="40" FontWeight="Bold" Height="100" HorizontalContentAlignment="Center" MaxHeight="120" MaxWidth="100" x:Name="kinectTileButton23" Width="117" BorderBrush="#FF70C4FF" Background="#FF70C4FF" Foreground="White">
+                            <k:KinectTileButton.Effect>
+                                <DropShadowEffect Color="#FFDBC9C9"/>
+                            </k:KinectTileButton.Effect>
+                        </k:KinectTileButton>
+                        <k:KinectTileButton BorderThickness="5" Content="B" FontFamily="Arial" FontSize="40" FontWeight="Bold" Height="100" HorizontalContentAlignment="Center" MaxHeight="120" MaxWidth="100" x:Name="kinectTileButton24" Width="117" BorderBrush="#FF70C4FF" Background="#FF70C4FF" Foreground="White">
+                            <k:KinectTileButton.Effect>
+                                <DropShadowEffect Color="#FFDBC9C9"/>
+                            </k:KinectTileButton.Effect>
+                        </k:KinectTileButton>
+                        <k:KinectTileButton BorderThickness="5" Content="N" FontFamily="Arial" FontSize="40" FontWeight="Bold" Height="100" HorizontalContentAlignment="Center" MaxHeight="120" MaxWidth="100" x:Name="kinectTileButton25" Width="117" BorderBrush="#FF70C4FF" Background="#FF70C4FF" Foreground="White">
+                            <k:KinectTileButton.Effect>
+                                <DropShadowEffect Color="#FFDBC9C9"/>
+                            </k:KinectTileButton.Effect>
+                        </k:KinectTileButton>
+                        <k:KinectTileButton BorderThickness="5" Content="M" FontFamily="Arial" FontSize="40" FontWeight="Bold" Height="100" HorizontalContentAlignment="Center" MaxHeight="120" MaxWidth="100" x:Name="kinectTileButton26" Width="117" BorderBrush="#FF70C4FF" Background="#FF70C4FF" Foreground="White">
+                            <k:KinectTileButton.Effect>
+                                <DropShadowEffect Color="#FFDBC9C9"/>
+                            </k:KinectTileButton.Effect>
+                        </k:KinectTileButton>
+                        <k:KinectTileButton BorderThickness="5" Content="Text + :-)" FontFamily="Arial" FontSize="40" FontWeight="Bold" Height="96" HorizontalContentAlignment="Center" x:Name="kinectTileButton27_Copy" Width="278" Click="textAndSmilie" Padding="0" BorderBrush="#FF70C4FF" Background="#FF70C4FF" Foreground="White" Margin="390,9,0,13.4">
+                            <k:KinectTileButton.Effect>
+                                <DropShadowEffect Color="#FFDBC9C9"/>
+                            </k:KinectTileButton.Effect>
+                        </k:KinectTileButton>
+
+                    </StackPanel>
+                    <StackPanel Height="114" x:Name="stackPanel4" Orientation="Horizontal" Width="1750" FlowDirection="LeftToRight">
+                        <k:KinectTileButton BorderThickness="5" Content="Backspace" FontFamily="Arial" FontSize="40" FontWeight="Bold" Height="96" HorizontalContentAlignment="Center" x:Name="kinectTileButton37" Width="228" Click="kinectTileButton37_Click" BorderBrush="#FF70C4FF" Background="#FF70C4FF" Foreground="White">
+                            <k:KinectTileButton.Effect>
+                                <DropShadowEffect Color="#FFDBC9C9" ShadowDepth="1"/>
+                            </k:KinectTileButton.Effect>
+                        </k:KinectTileButton>
+                        <k:KinectTileButton BorderThickness="5" Content="Delete All" FontFamily="Arial" FontSize="40" FontWeight="Bold" Height="96" HorizontalContentAlignment="Center" x:Name="kinectTileButton28" Width="283" Click="kinectTileButton28_Click" BorderBrush="#FF70C4FF" Background="#FF70C4FF" Foreground="White">
+                            <k:KinectTileButton.Effect>
+                                <DropShadowEffect Color="#FFDBC9C9"/>
+                            </k:KinectTileButton.Effect>
+                        </k:KinectTileButton>
+                        <k:KinectTileButton BorderThickness="5" Content="Enter" FontFamily="Arial" FontSize="40" FontWeight="Bold" Height="96" HorizontalContentAlignment="Center" x:Name="kinectTileButton27" Width="278" Click="kinectTileButton27_Click" Padding="0" BorderBrush="#FF70C4FF" Background="#FF70C4FF" Foreground="White">
+                            <k:KinectTileButton.Effect>
+                                <DropShadowEffect Color="#FFDBC9C9"/>
+                            </k:KinectTileButton.Effect>
+                        </k:KinectTileButton>
+                        <k:KinectTileButton BorderThickness="5" Content="Text + ♥" FontFamily="Arial" FontSize="40" FontWeight="Bold" Height="96" HorizontalContentAlignment="Center" x:Name="kinectTileButton27_Copy1" Width="278" Click="textAndSmilie" Padding="0" BorderBrush="#FF70C4FF" Background="#FF70C4FF" Foreground="White" Margin="300,9,0,8.6" RenderTransformOrigin="0.63,0.508">
+                            <k:KinectTileButton.Effect>
+                                <DropShadowEffect Color="#FFDBC9C9"/>
+                            </k:KinectTileButton.Effect>
+                        </k:KinectTileButton>
+                    </StackPanel>
+                    <TextBox Height="59" x:Name="textBox1" Text="" FontSize="36" Width="776" TextChanged="textBox1_TextChanged" Margin="0,20,0,0" />
+                </WrapPanel>
+            </Grid>
+        </k:KinectRegion>
+    </Grid>
+</Window>
